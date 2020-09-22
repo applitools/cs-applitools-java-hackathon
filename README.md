@@ -3,6 +3,7 @@
 ### Pre-requisites:
 1. Install Maven from [here](https://maven.apache.org/install.html)
 2. Install ChromeDriver from [here](https://chromedriver.chromium.org/downloads)
+3. Register to Applitools and [create an account](https://auth.applitools.com/users/register)  
 
 ### Running the example:
 1. Download the example
@@ -10,14 +11,13 @@
     * Option 2: Download it as a Zip file and extract it
     
 2. Navigate to just cloned folder cs-applitools-java-hackathon.
-3. Open VisualAISuite and set your ApiKey in string 'config.setApiKey("...")' (or comment the string and set APPLITOOLS_API_KEY environment variable)
-4. In order to run the project  from IDE perform next steps:
+3. In order to run the project  from IDE perform next steps:
    
-   4.1. Import the project as a Maven project in IntelliJ IDEA or Eclipse.
+   3.1. Import the project as a Maven project in IntelliJ IDEA or Eclipse.
    
-   4.2. Set Project SDK to your JDK (installed in Pre-requisites) in Intellij - File > Project Structure > Project.
+   3.2. Set Project SDK to your JDK (installed in Pre-requisites) in Intellij - File > Project Structure > Project.
    
-   4.3 Run or Debug class TraditionalSuite or method test().
+   3.3 Run or Debug class TraditionalSuite or method test().
    
 ###Hackathon Overview
 Imagine you wrote tests for the [1st Version of the App (V1)](https://demo.applitools.com/hackathon.html)
@@ -33,18 +33,20 @@ Compare the results.
 ### Instructions
 
 1) Review Traditional Script (provided) 
-TraditionalTest has been provided to you, as we assume you have already written these scripts before.
+TraditionalTestSuite has been provided to you, as we assume you have already written these scripts before.
 Analyze them, make sure they are ok, and feel free to add any additional coverage/lines of code you see fit.
 
-2) Once you are happy with the Traditional Script coverage, run the tests against both Version 1 and Version 2.
+2) Run the test suite against both Version 1 and Version 2.
 You are going to find a lot of failures in Version 2. (changes have been made, including bugs)
 
-3) Review the scripts again, and make any required changes to catch all the bugs in the V2 App for the same tests.
+3) Review the scripts again, and review how many assertions and locators were required to cover all the elements in the page.
 
-4) Create a new test using Applitools. Call it “VisualAITests.java” (VisualAITests.js, etc).
+4) Open the VisualAISuiteEmptyTemplate and set your ApiKey in string 'config.setApiKey("...")' (or comment the string and set APPLITOOLS_API_KEY environment variable).
+
+5) Modified the different tests to include visual assertion to achieve the same coverage as with the TraditionalSuite.
 
 5) Run the same test again and see all the differences between the screenshots of the 1st version and the 2nd version of the app.
 
 Note: When you run the tests against V2, you’ll see differences in screenshots because the app is actually different. 
-You should see exactly what those differences are (highlighted in pink). 
+You should see exactly what those differences are (highlighted in pink) in Applitools dashboard. 
 
