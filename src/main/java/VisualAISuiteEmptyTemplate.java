@@ -3,7 +3,6 @@ import com.applitools.eyes.config.Configuration;
 import com.applitools.eyes.selenium.ClassicRunner;
 import com.applitools.eyes.selenium.Eyes;
 import com.applitools.eyes.selenium.fluent.Target;
-import org.apache.tools.ant.taskdefs.Tar;
 import org.junit.*;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
@@ -12,11 +11,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 
 @RunWith(JUnit4.class)
-public class VisualAISuite {
+public class VisualAISuiteCustomerVersion {
     public WebDriver driver;
     public boolean isOriginalApp=true;
     public final String OriginalAppURL="https://demo.applitools.com/hackathon.html";
@@ -35,7 +32,7 @@ public class VisualAISuite {
     }
 
     @Before
-    public void testSetup() {
+    public void testSetup(){
         driver = new ChromeDriver();
 
         if(isOriginalApp){
@@ -51,6 +48,12 @@ public class VisualAISuite {
         conf.setViewportSize(new RectangleSize(1000,600));
 //        conf.setApiKey("SET_YOUR_API_KEY");
         eyes.setConfiguration(conf);
+
+
+
+        eyes.setBranchName("FeatureBranchName");
+        eyes.setParentBranchName("Master");
+
         eyes.open(driver,"VisualTest",testName.getMethodName());
 
     }
@@ -58,35 +61,36 @@ public class VisualAISuite {
 
     @Test
     public void UIElementTest()  {
-        eyes.check("LoginPage", Target.window().fully());
+        // Add visual validation here
     }
 
     @Test
     public void usernameAndPasswordMustPresentTest()  {
         submitForm();
-        eyes.check("Test2a", Target.window().fully());
+        // Add visual validation here
     }
 
     @Test
     public void usernameMustPresentTest()  {
         driver.findElement(By.cssSelector("#username")).sendKeys("MyUserName");
         submitForm();
-        eyes.check("Test2b", Target.window().fully());
+        // Add visual validation here
     }
 
     @Test
     public void passwordMustPresentTest()  {
         driver.findElement(By.cssSelector("#password")).sendKeys("MyPasswrod");
         submitForm();
-        eyes.check("Test2c", Target.window().fully());
+        // Add visual validation here
     }
 
     @Test
-    public void succsfullLoginTest()  {
+    public void successfulLoginTest()  {
         driver.findElement(By.cssSelector("#username")).sendKeys("MyUserName");
         driver.findElement(By.cssSelector("#password")).sendKeys("MyPasswrod");
         submitForm();
-        eyes.check("Test2d", Target.window().fully());
+
+        // Add visual validation here
     }
 
     public void submitForm(){
@@ -96,22 +100,11 @@ public class VisualAISuite {
 
     @After
     public void TearDown(){
-        try{
-            driver.quit();
-            eyes.closeAsync();
-        }
-        finally {
-            eyes.abortAsync();
-        }
-
+        driver.quit();
     }
 
     @AfterClass
     public static void finalTearDown(){
-        TestResultsSummary allTestResults = runner.getAllTestResults(false);
-        System.out.println(allTestResults);
-
-
 
     }
 
