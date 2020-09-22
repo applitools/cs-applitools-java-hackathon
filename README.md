@@ -32,7 +32,7 @@ Compare the results.
 
 ### Instructions
 
-1) Review Traditional Script (provided) 
+1) Review Traditional Script (provided) 
 TraditionalTest has been provided to you, as we assume you have already written these scripts before.
 Analyze them, make sure they are ok, and feel free to add any additional coverage/lines of code you see fit.
 
@@ -41,7 +41,8 @@ You are going to find a lot of failures in Version 2. (changes have been made, i
 
 3) Review the scripts again, and make any required changes to catch all the bugs in the V2 App for the same tests.
 
-4) Create a new test using Applitools. Call it “VisualAITests.java” (VisualAITests.js, VisualAITests.py, etc).
+4) Create a new test using Applitools. Call it “VisualAITests.java” (VisualAITests.js, etc).
+
 5) Run the same test again and see all the differences between the screenshots of the 1st version and the 2nd version of the app.
 
 Note: When you run the tests against V2, you’ll see differences in screenshots because the app is actually different. 
