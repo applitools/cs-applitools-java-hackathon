@@ -19,13 +19,13 @@
    
    3.3 Run or Debug class TraditionalSuite or method test().
    
-###Hackathon Overview
+### Hackathon Overview
 Imagine you wrote tests for the [1st Version of the App (V1)](https://demo.applitools.com/hackathon.html)
 
 Then Next [Version (V2)](https://demo.applitools.com/hackathonV2.html) came along later and has changes. (including bugs) 
 Some of these bugs are functional bugs and some of are visual bugs. 
 
-###The Challenge
+### The Challenge
 Write an automated test for both versions which leverages Applitools.
 Run both a traditional test (provided) and the new test you wrote.
 Compare the results.
