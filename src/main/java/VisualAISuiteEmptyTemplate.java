@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 @RunWith(JUnit4.class)
-public class VisualAISuiteCustomerVersion {
+public class VisualAISuiteEmptyTemplate {
     public WebDriver driver;
     public boolean isOriginalApp=true;
     public final String OriginalAppURL="https://demo.applitools.com/hackathon.html";
@@ -47,12 +47,9 @@ public class VisualAISuiteCustomerVersion {
         conf.setBatch(batchInfo);
         conf.setViewportSize(new RectangleSize(1000,600));
 //        conf.setApiKey("SET_YOUR_API_KEY");
+//        conf.setServerUrl("SET_YOUR_DEDICATED_CLOUD_URL");
+
         eyes.setConfiguration(conf);
-
-
-
-        eyes.setBranchName("FeatureBranchName");
-        eyes.setParentBranchName("Master");
 
         eyes.open(driver,"VisualTest",testName.getMethodName());
 
@@ -61,36 +58,44 @@ public class VisualAISuiteCustomerVersion {
 
     @Test
     public void UIElementTest()  {
-        // Add visual validation here
+        // Add visual validation here replacing all 21 assertions in the following tests:
+        // validateLabels
+        // validateImages
+        // validateCheckBox
+
+
     }
 
     @Test
     public void usernameAndPasswordMustPresentTest()  {
         submitForm();
         // Add visual validation here
+
     }
 
     @Test
     public void usernameMustPresentTest()  {
-        driver.findElement(By.cssSelector("#username")).sendKeys("MyUserName");
+        driver.findElement(By.cssSelector("#username")).sendKeys("John Smith");
         submitForm();
         // Add visual validation here
+
     }
 
     @Test
     public void passwordMustPresentTest()  {
-        driver.findElement(By.cssSelector("#password")).sendKeys("MyPasswrod");
+        driver.findElement(By.cssSelector("#password")).sendKeys("ABC$1@");
         submitForm();
         // Add visual validation here
+
     }
 
     @Test
     public void successfulLoginTest()  {
-        driver.findElement(By.cssSelector("#username")).sendKeys("MyUserName");
-        driver.findElement(By.cssSelector("#password")).sendKeys("MyPasswrod");
+        driver.findElement(By.cssSelector("#username")).sendKeys("John Smith");
+        driver.findElement(By.cssSelector("#password")).sendKeys("ABC$1@");
         submitForm();
-
         // Add visual validation here
+
     }
 
     public void submitForm(){
@@ -101,20 +106,14 @@ public class VisualAISuiteCustomerVersion {
     @After
     public void TearDown(){
         driver.quit();
+        eyes.closeAsync();
+
     }
 
     @AfterClass
     public static void finalTearDown(){
-
+        System.out.println(runner.getAllTestResults(false));
     }
-
-
-
-
-
-
-
-
 
 
 
