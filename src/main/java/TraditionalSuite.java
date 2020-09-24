@@ -2,17 +2,14 @@ import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 
 @RunWith(JUnit4.class)
 public class TraditionalSuite {
     public WebDriver driver;
-    public boolean isOriginalApp=true;
+    public boolean isOriginalApp=false;
     public final String OriginalAppURL="https://demo.applitools.com/hackathon.html";
     public final String NewAppURL="https://demo.applitools.com/hackathonV2.html";
     public final By errorLocator = By.cssSelector(".alert.alert-warning");
@@ -23,9 +20,7 @@ public class TraditionalSuite {
     }
 
     @Before
-    public void testSetup() throws UnsupportedEncodingException, MalformedURLException {
-
-
+    public void testSetup() {
         driver = new ChromeDriver();
 
         if(isOriginalApp){
@@ -41,24 +36,31 @@ public class TraditionalSuite {
 
         // Assert Text of Login Form
         Assert.assertTrue(driver.findElement(By.cssSelector(".auth-header")).getText().contains("Login Form"));
+        Assert.assertTrue(driver.findElement(By.cssSelector(".auth-header")).isDisplayed());
 
         // Assert Text of UserName Label
         Assert.assertTrue(driver.findElement(By.cssSelector("form > div:nth-child(1) > label")).getText().contains("Username"));
+        Assert.assertTrue(driver.findElement(By.cssSelector("form > div:nth-child(1) > label")).isDisplayed());
 
         // Assert Text of UserName Element
         Assert.assertTrue(driver.findElement(By.cssSelector("#username")).getAttribute("placeholder").contains("Enter your username"));
+        Assert.assertTrue(driver.findElement(By.cssSelector("#username")).isDisplayed());
 
         // Assert Text of Password Label
         Assert.assertTrue(driver.findElement(By.cssSelector("form > div:nth-child(2) > label")).getText().contains("Password"));
+        Assert.assertTrue(driver.findElement(By.cssSelector("form > div:nth-child(2) > label")).isDisplayed());
 
         // Assert Text of Password Element
         Assert.assertTrue(driver.findElement(By.cssSelector("#password")).getAttribute("placeholder").contains("Enter your password"));
+        Assert.assertTrue(driver.findElement(By.cssSelector("#password")).isDisplayed());
 
         // Assert Text of Login Element
         Assert.assertTrue(driver.findElement(By.cssSelector("#log-in")).getText().contains("Log In"));
+        Assert.assertTrue(driver.findElement(By.cssSelector("#log-in")).isDisplayed());
 
         // Assert Text of Remember Me Element
         Assert.assertTrue(driver.findElement(By.cssSelector(".form-check-label")).getText().contains("Remember Me"));
+        Assert.assertTrue(driver.findElement(By.cssSelector(".form-check-label")).isDisplayed());
     }
     @Test
     public void validateImages() {
@@ -97,7 +99,7 @@ public class TraditionalSuite {
     //Password must be present
     @Test
     public void usernameMustPresentTest()  {
-        driver.findElement(By.cssSelector("#username")).sendKeys("MyUserName");
+        driver.findElement(By.cssSelector("#username")).sendKeys("John Smith");
         submitForm();
         Assert.assertTrue(driver.findElement(errorLocator).isDisplayed());
         Assert.assertTrue(driver.findElement(errorLocator).getText().contains("Password must be present"));
@@ -105,7 +107,7 @@ public class TraditionalSuite {
     //Username must be present
     @Test
     public void passwordMustPresentTest()  {
-        driver.findElement(By.cssSelector("#password")).sendKeys("MyPassword");
+        driver.findElement(By.cssSelector("#password")).sendKeys("ABC$1@");
         submitForm();
         Assert.assertTrue(driver.findElement(errorLocator).isDisplayed());
         Assert.assertTrue(driver.findElement(errorLocator).getText().contains("Username must be present"));
@@ -113,8 +115,8 @@ public class TraditionalSuite {
     //Successful login
     @Test
     public void succsfullLoginTest()  {
-        driver.findElement(By.cssSelector("#username")).sendKeys("MyUserName");
-        driver.findElement(By.cssSelector("#password")).sendKeys("MyPasswrod");
+        driver.findElement(By.cssSelector("#username")).sendKeys("John Smith");
+        driver.findElement(By.cssSelector("#password")).sendKeys("ABC$1@");
         submitForm();
         Assert.assertTrue(driver.getTitle().contains("ACME demo app"));
     }
@@ -134,13 +136,6 @@ public class TraditionalSuite {
     public static void finalTearDown(){
 
     }
-
-
-
-
-
-
-
 
 
 
