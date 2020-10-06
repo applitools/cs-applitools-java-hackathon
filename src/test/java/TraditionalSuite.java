@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 @RunWith(JUnit4.class)
-public class MyTraditionalSuite {
+public class TraditionalSuite {
     public static boolean isOriginalApp=true;
     public WebDriver driver;
     public final String OriginalAppURL="https://demo.applitools.com/hackathon.html";

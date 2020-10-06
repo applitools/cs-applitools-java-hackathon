@@ -23,6 +23,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MyTraditionalSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TraditionalSuite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MyVisualAISuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/VisualAISuite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MyVisualAISuiteFullSolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/VisualAISuiteFullSolution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,32 +71,12 @@
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TraditionalSuite">
+  <component name="RunManager" selected="JUnit.VisualAISuiteFullSolution.usernameMustPresentTest">
     <configuration name="TraditionalSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="VisualTestingHackathon" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TraditionalSuite" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TraditionalSuite.Test2a" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="VisualTestingHackathon" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TraditionalSuite" />
-      <option name="METHOD_NAME" value="Test2a" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TraditionalSuite.Test2b" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="VisualTestingHackathon" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TraditionalSuite" />
-      <option name="METHOD_NAME" value="Test2b" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -107,11 +90,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VisualAISuite.UIElementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VisualAISuiteFullSolution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="VisualTestingHackathon" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="VisualAISuite" />
+      <option name="MAIN_CLASS_NAME" value="VisualAISuiteFullSolution" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VisualAISuiteFullSolution.UIElementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="VisualTestingHackathon" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="VisualAISuiteFullSolution" />
       <option name="METHOD_NAME" value="UIElementTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VisualAISuiteFullSolution.usernameMustPresentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="VisualTestingHackathon" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="VisualAISuiteFullSolution" />
+      <option name="METHOD_NAME" value="usernameMustPresentTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -119,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.VisualAISuiteFullSolution.usernameMustPresentTest" />
+        <item itemvalue="JUnit.MyVisualAISuiteFullSolution" />
+        <item itemvalue="JUnit.MyVisualAISuiteFullSolution.UIElementTest" />
+        <item itemvalue="JUnit.MyVisualAISuite" />
         <item itemvalue="JUnit.TraditionalSuite" />
-        <item itemvalue="JUnit.TraditionalSuite.Test2a" />
-        <item itemvalue="JUnit.VisualAISuite.UIElementTest" />
-        <item itemvalue="JUnit.VisualAISuite" />
-        <item itemvalue="JUnit.TraditionalSuite.Test2b" />
       </list>
     </recent_temporary>
   </component>
@@ -173,30 +175,38 @@
       <screen x="0" y="23" width="1440" height="808" />
     </state>
     <state x="160" y="117" key="#xdebugger.evaluate/0.23.1440.808@0.23.1440.808" timestamp="1595941888400" />
-    <state width="1363" height="337" key="GridCell.Tab.0.bottom" timestamp="1600709710229">
-      <screen x="0" y="23" width="1440" height="812" />
+    <state width="1588" height="391" key="GridCell.Tab.0.bottom" timestamp="1602005590253">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
+    <state width="1588" height="411" key="GridCell.Tab.0.bottom/-575.1103.1440.877/-1920.23.1920.988/0.23.1920.1057@-1920.23.1920.988" timestamp="1602004241424" />
+    <state width="1588" height="391" key="GridCell.Tab.0.bottom/-575.1103.1440.877/-1920.23.1920.988/0.23.1920.1057@0.23.1920.1057" timestamp="1602005590253" />
     <state width="1398" height="409" key="GridCell.Tab.0.bottom/0.23.1440.808@0.23.1440.808" timestamp="1596013996651" />
     <state width="1363" height="337" key="GridCell.Tab.0.bottom/0.23.1440.811@0.23.1440.811" timestamp="1600708713853" />
     <state width="1363" height="337" key="GridCell.Tab.0.bottom/0.23.1440.812@0.23.1440.812" timestamp="1600709710229" />
     <state width="1363" height="337" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1600709648584" />
-    <state width="1363" height="337" key="GridCell.Tab.0.center" timestamp="1600709710228">
-      <screen x="0" y="23" width="1440" height="812" />
+    <state width="1588" height="391" key="GridCell.Tab.0.center" timestamp="1602005590252">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
+    <state width="1588" height="411" key="GridCell.Tab.0.center/-575.1103.1440.877/-1920.23.1920.988/0.23.1920.1057@-1920.23.1920.988" timestamp="1602004241421" />
+    <state width="1588" height="391" key="GridCell.Tab.0.center/-575.1103.1440.877/-1920.23.1920.988/0.23.1920.1057@0.23.1920.1057" timestamp="1602005590252" />
     <state width="1398" height="409" key="GridCell.Tab.0.center/0.23.1440.808@0.23.1440.808" timestamp="1596013996650" />
     <state width="1363" height="337" key="GridCell.Tab.0.center/0.23.1440.811@0.23.1440.811" timestamp="1600708713852" />
     <state width="1363" height="337" key="GridCell.Tab.0.center/0.23.1440.812@0.23.1440.812" timestamp="1600709710228" />
     <state width="1363" height="337" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1600709648583" />
-    <state width="1363" height="337" key="GridCell.Tab.0.left" timestamp="1600709710227">
-      <screen x="0" y="23" width="1440" height="812" />
+    <state width="1588" height="391" key="GridCell.Tab.0.left" timestamp="1602005590252">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
+    <state width="1588" height="411" key="GridCell.Tab.0.left/-575.1103.1440.877/-1920.23.1920.988/0.23.1920.1057@-1920.23.1920.988" timestamp="1602004241420" />
+    <state width="1588" height="391" key="GridCell.Tab.0.left/-575.1103.1440.877/-1920.23.1920.988/0.23.1920.1057@0.23.1920.1057" timestamp="1602005590252" />
     <state width="1398" height="409" key="GridCell.Tab.0.left/0.23.1440.808@0.23.1440.808" timestamp="1596013996650" />
     <state width="1363" height="337" key="GridCell.Tab.0.left/0.23.1440.811@0.23.1440.811" timestamp="1600708713851" />
     <state width="1363" height="337" key="GridCell.Tab.0.left/0.23.1440.812@0.23.1440.812" timestamp="1600709710227" />
     <state width="1363" height="337" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1600709648582" />
-    <state width="1363" height="337" key="GridCell.Tab.0.right" timestamp="1600709710228">
-      <screen x="0" y="23" width="1440" height="812" />
+    <state width="1588" height="391" key="GridCell.Tab.0.right" timestamp="1602005590253">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
+    <state width="1588" height="411" key="GridCell.Tab.0.right/-575.1103.1440.877/-1920.23.1920.988/0.23.1920.1057@-1920.23.1920.988" timestamp="1602004241423" />
+    <state width="1588" height="391" key="GridCell.Tab.0.right/-575.1103.1440.877/-1920.23.1920.988/0.23.1920.1057@0.23.1920.1057" timestamp="1602005590253" />
     <state width="1398" height="409" key="GridCell.Tab.0.right/0.23.1440.808@0.23.1440.808" timestamp="1596013996650" />
     <state width="1363" height="337" key="GridCell.Tab.0.right/0.23.1440.811@0.23.1440.811" timestamp="1600708713852" />
     <state width="1363" height="337" key="GridCell.Tab.0.right/0.23.1440.812@0.23.1440.812" timestamp="1600709710228" />

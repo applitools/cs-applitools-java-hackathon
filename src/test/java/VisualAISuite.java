@@ -1,11 +1,9 @@
 import com.applitools.eyes.BatchInfo;
 import com.applitools.eyes.EyesRunner;
 import com.applitools.eyes.RectangleSize;
-import com.applitools.eyes.TestResultsSummary;
 import com.applitools.eyes.config.Configuration;
 import com.applitools.eyes.selenium.ClassicRunner;
 import com.applitools.eyes.selenium.Eyes;
-import com.applitools.eyes.selenium.fluent.Target;
 import org.junit.*;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
@@ -14,10 +12,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+
 @RunWith(JUnit4.class)
-public class MyVisualAISuiteFullSolution {
+public class VisualAISuite {
+    public static boolean isOriginalApp=true;
     public WebDriver driver;
-    public boolean isOriginalApp=false;
     public final String OriginalAppURL="https://demo.applitools.com/hackathon.html";
     public final String NewAppURL="https://demo.applitools.com/hackathonV2.html";
     public Eyes eyes;
@@ -29,15 +28,19 @@ public class MyVisualAISuiteFullSolution {
 
     @BeforeClass
     public static void classSetup(){
+        if(null!=System.getProperty("isOriginalApp")){
+            isOriginalApp=Boolean.valueOf(System.getProperty("isOriginalApp"));
+        }
+
         batchInfo = new BatchInfo("VisualAITests");
         runner = new ClassicRunner();
     }
 
     @Before
-    public void testSetup() {
+    public void testSetup(){
         driver = new ChromeDriver();
 
-        if(Boolean.valueOf(System.getProperty("isOriginalApp"))){
+        if(isOriginalApp){
             driver.get(OriginalAppURL);
         }
         else{
@@ -52,6 +55,7 @@ public class MyVisualAISuiteFullSolution {
 //        conf.setServerUrl("SET_YOUR_DEDICATED_CLOUD_URL");
 
         eyes.setConfiguration(conf);
+
         eyes.open(driver,"VisualTest",testName.getMethodName());
 
     }
@@ -63,27 +67,31 @@ public class MyVisualAISuiteFullSolution {
         // validateLabels
         // validateImages
         // validateCheckBox
-        eyes.check("LoginPage", Target.window().fully());
+
+
     }
 
     @Test
     public void usernameAndPasswordMustPresentTest()  {
         submitForm();
-        eyes.check("Username and password must be present", Target.window().fully());
+        // Add visual validation here
+
     }
 
     @Test
     public void usernameMustPresentTest()  {
         driver.findElement(By.cssSelector("#username")).sendKeys("John Smith");
         submitForm();
-        eyes.check("Username must be present", Target.window().fully());
+        // Add visual validation here
+
     }
 
     @Test
     public void passwordMustPresentTest()  {
         driver.findElement(By.cssSelector("#password")).sendKeys("ABC$1@");
         submitForm();
-        eyes.check("Password must be present", Target.window().fully());
+        // Add visual validation here
+
     }
 
     @Test
@@ -91,7 +99,8 @@ public class MyVisualAISuiteFullSolution {
         driver.findElement(By.cssSelector("#username")).sendKeys("John Smith");
         driver.findElement(By.cssSelector("#password")).sendKeys("ABC$1@");
         submitForm();
-        eyes.check("Successful login", Target.window().fully());
+        // Add visual validation here
+
     }
 
     public void submitForm(){
@@ -101,24 +110,16 @@ public class MyVisualAISuiteFullSolution {
 
     @After
     public void TearDown(){
-        try{
-            driver.quit();
-            eyes.closeAsync();
-        }
-        finally {
-            eyes.abortAsync();
-        }
+        driver.quit();
+        eyes.closeAsync();
 
     }
 
     @AfterClass
     public static void finalTearDown(){
-        TestResultsSummary allTestResults = runner.getAllTestResults(false);
-        System.out.println(allTestResults);
-
-
-
+        System.out.println(runner.getAllTestResults(false));
     }
+
 
 
 }
