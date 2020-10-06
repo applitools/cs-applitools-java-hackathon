@@ -22,10 +22,6 @@
     <list default="true" id="a9131d17-d815-4f43-b556-7d7b3d3eb5ef" name="Default Changelist" comment="Adding VisualAISuite">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MyTraditionalSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TraditionalSuite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MyVisualAISuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/VisualAISuite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MyVisualAISuiteFullSolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/VisualAISuiteFullSolution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -71,11 +71,11 @@ You should see exactly what those differences are (highlighted in pink) in Appli
        
     mvn -Dtest=TraditionalSuite test -DargLine="-DisOriginalApp=false"
     
-   Run the Traditional Test Suite on Version 1
+   Run the VisualAISuite Test Suite on Version 1
        
     mvn -Dtest=VisualAISuite test -DargLine="-DisOriginalApp=true"
     
-   Run the Traditional Test Suite on Version 2
+   Run the VisualAISuite Test Suite on Version 2
            
     mvn -Dtest=VisualAISuite test -DargLine="-DisOriginalApp=false"
    
@@ -86,6 +86,6 @@ You should see exactly what those differences are (highlighted in pink) in Appli
         
       mvn -Dtest=VisualAISuiteFullSolution test -DargLine="-DisOriginalApp=true"
       
-  Run the Traditional Test Suite on Version 2
+  Run the VisualAISuiteFullSolution Test Suite on Version 2
              
       mvn -Dtest=VisualAISuiteFullSolution test -DargLine="-DisOriginalApp=false"
