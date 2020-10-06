@@ -1,8 +1,9 @@
-import com.applitools.eyes.*;
+import com.applitools.eyes.BatchInfo;
+import com.applitools.eyes.EyesRunner;
+import com.applitools.eyes.RectangleSize;
 import com.applitools.eyes.config.Configuration;
 import com.applitools.eyes.selenium.ClassicRunner;
 import com.applitools.eyes.selenium.Eyes;
-import com.applitools.eyes.selenium.fluent.Target;
 import org.junit.*;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
@@ -13,9 +14,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 @RunWith(JUnit4.class)
-public class VisualAISuiteEmptyTemplate {
+public class MyVisualAISuite {
+    public static boolean isOriginalApp=true;
     public WebDriver driver;
-    public boolean isOriginalApp=true;
     public final String OriginalAppURL="https://demo.applitools.com/hackathon.html";
     public final String NewAppURL="https://demo.applitools.com/hackathonV2.html";
     public Eyes eyes;
@@ -27,6 +28,10 @@ public class VisualAISuiteEmptyTemplate {
 
     @BeforeClass
     public static void classSetup(){
+        if(null!=System.getProperty("isOriginalApp")){
+            isOriginalApp=Boolean.valueOf(System.getProperty("isOriginalApp"));
+        }
+
         batchInfo = new BatchInfo("VisualAITests");
         runner = new ClassicRunner();
     }

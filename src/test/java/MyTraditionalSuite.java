@@ -7,22 +7,23 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 @RunWith(JUnit4.class)
-public class TraditionalSuite {
+public class MyTraditionalSuite {
+    public static boolean isOriginalApp=true;
     public WebDriver driver;
-    public boolean isOriginalApp=false;
     public final String OriginalAppURL="https://demo.applitools.com/hackathon.html";
     public final String NewAppURL="https://demo.applitools.com/hackathonV2.html";
     public final By errorLocator = By.cssSelector(".alert.alert-warning");
 
     @BeforeClass
     public static void classSetup(){
-
+        if(null!=System.getProperty("isOriginalApp")){
+            isOriginalApp=Boolean.valueOf(System.getProperty("isOriginalApp"));
+        }
     }
 
     @Before
     public void testSetup() {
         driver = new ChromeDriver();
-
         if(isOriginalApp){
             driver.get(OriginalAppURL);
         }

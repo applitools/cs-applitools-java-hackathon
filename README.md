@@ -1,25 +1,14 @@
 # cs-applitools-java-hackathon
 
-### Pre-requisites:
+## Pre-requisites:
 1. Install Maven from [here](https://maven.apache.org/install.html)
 2. Install ChromeDriver from [here](https://chromedriver.chromium.org/downloads)
 3. Register to Applitools and [create an account](https://auth.applitools.com/users/register)  
+4. Ensure you have your Applitools API Key 
 
-### Running the example:
-1. Download the example
-    * Option 1: `git clone https://github.com/applitools/cs-applitools-java-hackathon`
-    * Option 2: Download it as a Zip file and extract it
-    
-2. Navigate to just cloned folder cs-applitools-java-hackathon.
-3. In order to run the project  from IDE perform next steps:
+
    
-   3.1. Import the project as a Maven project in IntelliJ IDEA or Eclipse.
-   
-   3.2. Set Project SDK to your JDK (installed in Pre-requisites) in Intellij - File > Project Structure > Project.
-   
-   3.3 Run or Debug class TraditionalSuite or method test().
-   
-### Hackathon Overview
+## Hackathon Overview
 Imagine you wrote tests for the [1st Version of the App (V1)](https://demo.applitools.com/hackathon.html)
 
 Then Next [Version (V2)](https://demo.applitools.com/hackathonV2.html) came along later and has changes. (including bugs) 
@@ -50,3 +39,41 @@ You are going to find a lot of failures in Version 2. (changes have been made, i
 Note: When you run the tests against V2, you’ll see differences in screenshots because the app is actually different. 
 You should see exactly what those differences are (highlighted in pink) in Applitools dashboard. 
 
+## Running the example:
+ 1. Download the example
+    * Option 1: `git clone https://github.com/applitools/cs-applitools-java-hackathon`
+    * Option 2: Download it as a Zip file and extract it
+    
+2. Run the project
+### In order to run the project from IDE perform next steps:
+
+   2.1. Navigate to the recently cloned folder cs-applitools-java-hackathon.
+   
+   2.2.  Import the project as a Maven project in IntelliJ IDEA or Eclipse.
+   
+   2.3. Set Project SDK to your JDK (installed in Pre-requisites) in Intellij - File > Project Structure > Project.
+   
+   2.4. Run or Debug class TraditionalSuite or method test().
+   
+### In order to run the tests from commandLine:
+   4.1. Open a commandLine window
+   
+   4.2. Navigate to the recently cloned folder cs-applitools-java-hackathon.
+   
+   4.3. Run one of the following commands:
+   Run the Traditional Test Suite on Version 1
+   
+    mvn -Dtest=MyTraditionalSuite test -DargLine="-DisOriginalApp=true"
+
+   Run the Traditional Test Suite on Version 2
+       
+    mvn -Dtest=MyTraditionalSuite test -DargLine="-DisOriginalApp=false"
+    
+   Run the Traditional Test Suite on Version 1
+       
+    mvn -Dtest=MyVisualAISuite test -DargLine="-DisOriginalApp=true"
+    
+   Run the Traditional Test Suite on Version 2
+           
+    mvn -Dtest=MyVisualAISuite test -DargLine="-DisOriginalApp=false"
+   
