@@ -6,8 +6,10 @@ simply run ```brew install maven```
 2. Install ChromeDriver from [here](https://chromedriver.chromium.org/downloads) if you are running on mac, you can also install it using the brew,
    simply run ```brew install chromedriver```
    -  Please check to make sure your google chrome browser is the same version as the chromedriver you install
-   -  To check the version of chrome, click the three vertical dots on the top right of your page
-   -  then click help -> about google chrome.  The version will be at the top.
+   1)  Open chrome and navigate to [here](chrome://settings/help)
+   2)  Check your version ![here](https://files.slack.com/files-pri/T032PDF6G-F01D4PUSWJG/screen_shot_2020-10-20_at_17.55.28.png)
+   3)  Download the compatible chriomeDriver version:  [here](https://chromedriver.chromium.org/downloads)
+    
 3. Register to Applitools and [create an account](https://auth.applitools.com/users/register)  
 4. Ensure you have your Applitools API Key 
 
