@@ -48,6 +48,9 @@ You should see exactly what those differences are (highlighted in pink) in Appli
  1. Download the example
     * Option 1: `git clone https://github.com/applitools/cs-applitools-java-hackathon`
     * Option 2: Download it as a Zip file and extract it
+    * in the beforeClass region, please add the chromedriver path within the following command
+          ``System.setProperty(“webdriver.chrome.driver”, “/path/to/chromedriver”);``
+`
     
 2. Run the project
 ### In order to run the project from IDE perform next steps:
