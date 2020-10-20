@@ -3,6 +3,7 @@ import com.applitools.eyes.config.Configuration;
 import com.applitools.eyes.selenium.ClassicRunner;
 import com.applitools.eyes.selenium.Eyes;
 import com.applitools.eyes.selenium.fluent.Target;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.*;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
@@ -26,6 +27,7 @@ public class VisualAISuiteFullSolution {
 
     @BeforeClass
     public static void classSetup(){
+        WebDriverManager.chromedriver().setup();
         batchInfo = new BatchInfo("VisualAITests");
         runner = new ClassicRunner();
     }

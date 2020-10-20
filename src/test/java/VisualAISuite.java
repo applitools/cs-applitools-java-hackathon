@@ -4,6 +4,7 @@ import com.applitools.eyes.RectangleSize;
 import com.applitools.eyes.config.Configuration;
 import com.applitools.eyes.selenium.ClassicRunner;
 import com.applitools.eyes.selenium.Eyes;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.*;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
@@ -28,6 +29,7 @@ public class VisualAISuite {
 
     @BeforeClass
     public static void classSetup(){
+        WebDriverManager.chromedriver().setup();
         if(null!=System.getProperty("isOriginalApp")){
             isOriginalApp=Boolean.valueOf(System.getProperty("isOriginalApp"));
         }
