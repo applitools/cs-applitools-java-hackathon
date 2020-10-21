@@ -8,6 +8,7 @@ simply run ```brew install maven```
    -  Please check to make sure your google chrome browser is the same version as the chromedriver you install
    1)  Open chrome and navigate to chrome://settings/help
    2)  Check your version!
+   ![YourChromeVersion](https://user-images.githubusercontent.com/21107409/96691179-3ecef880-138d-11eb-84a3-cd52106944c6.png)
    3)  Download the compatible chriomeDriver version:  [here](https://chromedriver.chromium.org/downloads)
     
 3. Register to Applitools and [create an account](https://auth.applitools.com/users/register)  
