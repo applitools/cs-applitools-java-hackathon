@@ -1,33 +1,29 @@
 import com.applitools.eyes.*;
 import com.applitools.eyes.config.Configuration;
-import com.applitools.eyes.selenium.BrowserType;
 import com.applitools.eyes.selenium.ClassicRunner;
 import com.applitools.eyes.selenium.Eyes;
-import com.applitools.eyes.selenium.StitchMode;
 import com.applitools.eyes.selenium.fluent.Target;
-import com.applitools.eyes.visualgrid.model.DeviceName;
-import com.applitools.eyes.visualgrid.model.IosDeviceName;
-import com.applitools.eyes.visualgrid.services.VisualGridRunner;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import junit.framework.TestResult;
-
 import org.junit.*;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @RunWith(JUnit4.class)
-public class VisualAISuiteFullSolution {
+public class ApplitoolsAccesability {
     public WebDriver driver;
     public boolean isOriginalApp=false;
     public final String OriginalAppURL="https://demo.applitools.com/hackathon.html";
     public final String NewAppURL="https://demo.applitools.com/hackathonV2.html";
-    public final String ABTestURL="https://abtestautomation.com/";
     public Eyes eyes;
     public static EyesRunner runner;
     public static BatchInfo batchInfo;
@@ -38,7 +34,7 @@ public class VisualAISuiteFullSolution {
     @BeforeClass
     public static void classSetup(){
         WebDriverManager.chromedriver().setup();
-        batchInfo = new BatchInfo("VisualAITests");
+        batchInfo = new BatchInfo("VisualAI Advanced Capabilities");
         runner = new ClassicRunner();
     }
 
@@ -46,24 +42,23 @@ public class VisualAISuiteFullSolution {
     public void testSetup() {
         driver = new ChromeDriver();
 
-
-        if(isOriginalApp){
-            driver.get(OriginalAppURL);
-        }
-        else{
-            driver.get(NewAppURL);
-        }
-
         eyes=new Eyes(runner);
         Configuration conf = eyes.getConfiguration();
         conf.setBatch(batchInfo);
         // set the viewport size of the local browser
-        conf.setViewportSize(new RectangleSize(1000,600));
+        conf.setViewportSize(new RectangleSize(700,600));
 //        conf.setApiKey("SET_YOUR_API_KEY");
 //        conf.setServerUrl("SET_YOUR_DEDICATED_CLOUD_URL");
 
+        // Accessibility Setup
+
+        conf.setAccessibilityValidation(new AccessibilitySettings(AccessibilityLevel.AA, AccessibilityGuidelinesVersion.WCAG_2_0));
+//        conf.setAccessibilityValidation(new AccessibilitySettings(AccessibilityLevel.AA, AccessibilityGuidelinesVersion.WCAG_2_1));
+//        conf.setAccessibilityValidation(new AccessibilitySettings(AccessibilityLevel.AAA, AccessibilityGuidelinesVersion.WCAG_2_0));
+//        conf.setAccessibilityValidation(new AccessibilitySettings(AccessibilityLevel.AAA, AccessibilityGuidelinesVersion.WCAG_2_1));
+
         eyes.setConfiguration(conf);
-        eyes.setLogHandler(new StdoutLogHandler(true));
+        //eyes.setLogHandler(new StdoutLogHandler(true));
         eyes.open(driver,"VisualTest",testName.getMethodName());
         // Baseline is defined by 5 properties
         // 1 - AppName - String
@@ -77,52 +72,22 @@ public class VisualAISuiteFullSolution {
     }
 
     @Test
-    public void UIElementTest()  {
-        // Add visual validation here replacing all 21 assertions in the following tests:
-        // validateLabels
-        // validateImages
-        // validateCheckBox
-        eyes.check("LoginPage", Target.window().fully(true));
-
-    }
-
-    @Test
-    public void usernameAndPasswordMustPresentTest()  {
+    public void endToEndAccesabilityTesting()  {
+        driver.get(OriginalAppURL);
+        //
+        eyes.check("Empty Form", Target.window().fully(true));
         submitForm();
-        eyes.check("Username and password must be present", Target.window().fully());
-    }
+        // Form with Error message
+        eyes.check("Form with Error message", Target.window().fully());
 
-    @Test
-    public void usernameMustPresentTest()  {
-        driver.findElement(By.cssSelector("#username")).sendKeys("John Smith");
-        submitForm();
-        eyes.check("Username must be present", Target.window().fully());
-    }
-
-    @Test
-    public void passwordMustPresentTest()  {
-        driver.findElement(By.cssSelector("#password")).sendKeys("ABC$1@");
-        submitForm();
-        eyes.check("Password must be present", Target.window().fully());
-
-
-    }
-
-    @Test
-    public void successfulLoginTest()  {
+        // dashboard page
         driver.findElement(By.cssSelector("#username")).sendKeys("John Smith");
         driver.findElement(By.cssSelector("#password")).sendKeys("ABC$1@");
         submitForm();
-        eyes.check("Successful login", Target.window().fully());
+        eyes.check("dashboard page", Target.window().fully());
+
+
     }
-
-    @Test
-    public void ABTestApplitools(){
-        driver.get(ABTestURL);
-        eyes.check("HomePage AB Test", Target.window().fully());
-    }
-
-
 
 
     public void submitForm(){
@@ -145,11 +110,33 @@ public class VisualAISuiteFullSolution {
     @AfterClass
     public static void finalTearDown(){
         TestResultsSummary allTestResults = runner.getAllTestResults(true);
-        System.out.println(allTestResults.getAllResults()[0].getTestResults());
+        for (TestResultContainer summary : allTestResults) {
+            TestResults result = summary.getTestResults();
+            if (result == null) {
+                System.out.printf("No test results information available");
+            } else {
+                System.out.printf(
+                        "URL = %s, \nAppName = %s, testname = %s, Browser = %s,OS = %s, viewport = %dx%d, acessibility = %s\n",
+                        result.getUrl(),
+                        result.getAppName(),
+                        result.getName(),
+                        result.getHostApp(),
+                        result.getHostOS(),
+                        result.getHostDisplaySize().getWidth(),
+                        result.getHostDisplaySize().getHeight(),
+                        ( result.getAccessibilityStatus() == null ? "Accessability validation not enabled"
+                                : ((result.getAccessibilityStatus().getStatus() == AccessibilityStatus.Passed
+                                ? "Passed accessibility"
+                                : (result.getAccessibilityStatus().getStatus() == AccessibilityStatus.Failed
+                                ? "Failed accessibility" : "undefined")))
+                        )
+                );
+            }
+        }
 
 
 
-    }
+        }
 
 
 }
