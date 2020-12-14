@@ -20,11 +20,11 @@ simply run ```brew install maven```
 Imagine you wrote tests for the [1st Version of the App (V1)](https://demo.applitools.com/hackathon.html)
 
 Then Next [Version (V2)](https://demo.applitools.com/hackathonV2.html) came along later and has changes. (including bugs) 
-Some of these bugs are functional bugs and some of are visual bugs. 
+Some of these bugs are functional bugs, and some of are visual bugs. 
 
 ### The Challenge
 Write an automated test for both versions which leverages Applitools.
-Run both a traditional test (provided) and the new test you wrote.
+Run both a traditional test (provided), and the new test you wrote.
 Compare the results.
 
 ### Instructions
@@ -40,12 +40,21 @@ You are going to find a lot of failures in Version 2. (changes have been made, i
 
 4) Open the VisualAISuite and set your ApiKey in string 'config.setApiKey("...")' (or comment the string and set APPLITOOLS_API_KEY environment variable).
 
-5) Modified the different tests to include visual assertion to achieve the same coverage as with the TraditionalSuite.
+5) Modified the different tests to include visual assertion to achieve the same coverage as with the TraditionalSuiteEmptyTemplate.
 
 5) Run the same test again and see all the differences between the screenshots of the 1st version and the 2nd version of the app.
 
 Note: When you run the tests against V2, you’ll see differences in screenshots because the app is actually different. 
 You should see exactly what those differences are (highlighted in pink) in Applitools dashboard. 
+
+### Advanced Use Cases
+1) AB Testing -  [This page](https://abtestautomation.com) comes in two modes, A and B which are randomly selected when navigating to the page.
+
+2) Testing Canvas Element - Assume the values of the chart are coming from a test data and the test data will not change across versions.  Validate that the bar chart and representing that data (number of bars and their heights). They should remain the same across versions. Then click on the “Show data for next year” button. This should add the data for the year 2019. Verify that this data set is added for the year 2019.
+
+3) Cross Browser Testing - Run the above tests across multiple browsers using [Appitlools Ultra Fast Grid](https://applitools.com/product-ultrafast-test-cloud/), see VisualAISuiteFullSolutionUFG example.
+
+4) Accessibility Testing - Use [Applitools Contrast Afvisor](https://applitools.com/docs/features/contrast-accessibility.html) to validate for accessibility violations.  
 
 ## Running the example:
  1. Download the example
@@ -64,7 +73,7 @@ You should see exactly what those differences are (highlighted in pink) in Appli
    
    2.3. Set Project SDK to your JDK (installed in Pre-requisites) in Intellij - File > Project Structure > Project.
    
-   2.4. Run or Debug class TraditionalSuite or method test().
+   2.4. Run or Debug class TraditionalSuiteEmptyTemplate or method test().
    
 ### In order to run the tests from commandLine:
    4.1. Open a commandLine window
@@ -74,11 +83,11 @@ You should see exactly what those differences are (highlighted in pink) in Appli
    4.3. Run one of the following commands:
    Run the Traditional Test Suite on Version 1
    
-    mvn -Dtest=TraditionalSuite test -DargLine="-DisOriginalApp=true"
+    mvn -Dtest=TraditionalSuiteEmptyTemplate test -DargLine="-DisOriginalApp=true"
 
    Run the Traditional Test Suite on Version 2
        
-    mvn -Dtest=TraditionalSuite test -DargLine="-DisOriginalApp=false"
+    mvn -Dtest=TraditionalSuiteEmptyTemplate test -DargLine="-DisOriginalApp=false"
     
    Run the VisualAISuite Test Suite on Version 1
        
@@ -98,3 +107,15 @@ You should see exactly what those differences are (highlighted in pink) in Appli
   Run the VisualAISuiteFullSolution Test Suite on Version 2
              
       mvn -Dtest=VisualAISuiteFullSolution test -DargLine="-DisOriginalApp=false"
+      
+      
+## Cross Browser Testing Using the Ultra Fast Grid 
+  5. Run the VisualAISuiteFullSolutionUFG
+  
+  Run the VisVisualAISuiteFullSolutionUFG Test Suite on Version 1
+        
+      mvn -Dtest=VisualAISuiteFullSolutionUFG test -DargLine="-DisOriginalApp=true"
+      
+  Run the VisualAISuiteFullSolutionUFG Test Suite on Version 2
+             
+      mvn -Dtest=VisualAISuiteFullSolutionUFG test -DargLine="-DisOriginalApp=false"      

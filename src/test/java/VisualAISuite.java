@@ -4,6 +4,7 @@ import com.applitools.eyes.RectangleSize;
 import com.applitools.eyes.config.Configuration;
 import com.applitools.eyes.selenium.ClassicRunner;
 import com.applitools.eyes.selenium.Eyes;
+import com.applitools.eyes.selenium.fluent.Target;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.*;
 import org.junit.rules.TestName;
@@ -20,6 +21,7 @@ public class VisualAISuite {
     public WebDriver driver;
     public final String OriginalAppURL="https://demo.applitools.com/hackathon.html";
     public final String NewAppURL="https://demo.applitools.com/hackathonV2.html";
+    public final String ABTestURL="https://abtestautomation.com/";
     public Eyes eyes;
     public static EyesRunner runner;
     public static BatchInfo batchInfo;
@@ -105,9 +107,17 @@ public class VisualAISuite {
 
     }
 
+    @Test
+    public void ABTestApplitools(){
+        driver.get(ABTestURL);
+        // Add Visual Assertion here
+    }
+
     public void submitForm(){
         driver.findElement(By.cssSelector("#log-in")).click();
     }
+
+
 
 
     @After
