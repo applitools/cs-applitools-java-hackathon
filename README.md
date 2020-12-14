@@ -42,7 +42,7 @@ You are going to find a lot of failures in Version 2. (changes have been made, i
 
 5) Modified the different tests to include visual assertion to achieve the same coverage as with the TraditionalSuiteEmptyTemplate.
 
-5) Run the same test again and see all the differences between the screenshots of the 1st version and the 2nd version of the app.
+6) Run the same test again and see all the differences between the screenshots of the 1st version and the 2nd version of the app.
 
 Note: When you run the tests against V2, you’ll see differences in screenshots because the app is actually different. 
 You should see exactly what those differences are (highlighted in pink) in Applitools dashboard. 
@@ -110,7 +110,7 @@ You should see exactly what those differences are (highlighted in pink) in Appli
       
       
 ## Cross Browser Testing Using the Ultra Fast Grid 
-  5. Run the VisualAISuiteFullSolutionUFG
+  6. Run the VisualAISuiteFullSolutionUFG
   
   Run the VisVisualAISuiteFullSolutionUFG Test Suite on Version 1
         
