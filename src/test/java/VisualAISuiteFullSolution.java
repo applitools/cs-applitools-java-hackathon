@@ -45,7 +45,10 @@ public class VisualAISuiteFullSolution {
     @Before
     public void testSetup() {
         driver = new ChromeDriver();
-
+        
+        if(null!=System.getProperty("isOriginalApp")){
+            isOriginalApp=Boolean.valueOf(System.getProperty("isOriginalApp"));
+        }
 
         if(isOriginalApp){
             driver.get(OriginalAppURL);
